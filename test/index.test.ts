@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { RenderableTreeNode, RenderableTreeNodes } from '@markdoc/markdoc'
+import { defineComponent, h } from 'vue'
 import dynamic from '../src'
 
 function removeSpaces(html: string) {
@@ -45,6 +46,21 @@ describe('Vue dynamic renderer', () => {
     const wrapper = mount(output)
 
     expect(removeSpaces(wrapper.html())).toBe('<div><p>test</p></div>')
+  })
+
+  it('renders an external component', () => {
+    const components = {
+      Foo: defineComponent({
+        setup(_props, { slots }) {
+          return () => h('div', null, slots)
+        },
+      }),
+    }
+    const example = { name: 'Foo', children: ['test'] }
+    const output = dynamic(example as RenderableTreeNode, { components })
+
+    const wrapper = mount(output)
+    expect(wrapper.html()).toBe('<div>test</div>')
   })
 
   it('renders a fragment', () => {

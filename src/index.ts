@@ -1,8 +1,10 @@
 import type { RenderableTreeNodes, Scalar } from '@markdoc/markdoc'
-import type { VNode } from 'vue'
+import type { Component, VNode } from 'vue'
 import { defineComponent, h } from 'vue'
 
-export default function dynamic(node: RenderableTreeNodes) {
+export default function dynamic(
+  node: RenderableTreeNodes, { components }: { components?: Record<string, Component> } = {},
+) {
   function deepRender(value: any): any {
     if (value == null || typeof value !== 'object')
       return value
@@ -44,8 +46,16 @@ export default function dynamic(node: RenderableTreeNodes) {
       children = [],
     } = node
 
+    const attr = Object.keys(attributes).length === 0 ? null : deepRender(attributes)
+
+    if (components && components[name]) {
+      return h(components[name], {
+        ...attr,
+      }, () => children.map(render))
+    }
+
     return h(name, {
-      ...Object.keys(attributes).length === 0 ? null : deepRender(attributes),
+      ...attr,
     }, children.map(render))
   }
 
