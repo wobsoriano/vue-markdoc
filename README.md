@@ -34,7 +34,7 @@ const ContentComponent = render(content)
 
 ## Rendering Vue components
 
-To render a Vue component, first create a renderable tree from your document calling `transform`.
+To render a Vue component, provide the `components` object as an argument along with the `content`. The `components` object specifies a mapping from your tags and nodes to the corresponding Vue component.
 
 ```html
 <script setup>
