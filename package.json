@@ -1,5 +1,5 @@
 {
-  "name": "markdoc-vue",
+  "name": "vue-markdoc",
   "version": "0.0.0",
   "packageManager": "pnpm@7.0.0",
   "description": "Vue renderer for Markdoc",
