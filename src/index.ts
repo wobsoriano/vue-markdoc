@@ -1,29 +1,57 @@
-import type { Plugin } from 'vite'
-import { dataToEsm } from '@rollup/pluginutils'
-import Markdoc from '@markdoc/markdoc'
+import type { RenderableTreeNodes, Scalar } from '@markdoc/markdoc'
+import type { VNode } from 'vue'
+import { defineComponent, h } from 'vue'
 
-type Options = Parameters<typeof Markdoc.transform>['1']
+export default function renderer(node: RenderableTreeNodes) {
+  function deepRender(value: any): any {
+    if (value == null || typeof value !== 'object')
+      return value
 
-const mdExtRE = /\.(md)$/i
+    if (Array.isArray(value))
+      return value.map(item => deepRender(item))
 
-export default function (options?: Options): Plugin {
-  return {
-    name: 'vite-plugin-markdoc',
-    enforce: 'pre',
-    transform(code, id) {
-      if (!mdExtRE.test(id))
-        return null
+    if (value.$$mdtype === 'Tag')
+      return render(value)
 
-      const ast = Markdoc.parse(code)
-      const content = Markdoc.transform(ast, options)
+    if (typeof value !== 'object')
+      return value
 
-      return {
-        code: dataToEsm(content, {
-          preferConst: true,
-          namedExports: true,
-        }),
-        map: { mappings: '' },
-      }
-    },
+    const output: Record<string, Scalar> = {}
+    for (const [k, v] of Object.entries(value)) output[k] = deepRender(v)
+    return output
   }
+
+  function render(node: RenderableTreeNodes): VNode {
+    if (Array.isArray(node)) {
+      return h(defineComponent({
+        render() {
+          return null
+        },
+      }), node.map(render))
+    }
+
+    if (node === null || typeof node !== 'object') {
+      return h(defineComponent({
+        render() {
+          return node
+        },
+      }))
+    }
+
+    const {
+      name,
+      attributes = {},
+      children = [],
+    } = node
+
+    return h(name, {
+      ...Object.keys(attributes).length === 0 ? null : deepRender(attributes),
+    }, children.map(render))
+  }
+
+  return defineComponent({
+    render() {
+      return render(node)
+    },
+  })
 }
