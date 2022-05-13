@@ -2,7 +2,7 @@ import type { RenderableTreeNodes, Scalar } from '@markdoc/markdoc'
 import type { VNode } from 'vue'
 import { defineComponent, h } from 'vue'
 
-export default function renderer(node: RenderableTreeNodes) {
+export default function dynamic(node: RenderableTreeNodes) {
   function deepRender(value: any): any {
     if (value == null || typeof value !== 'object')
       return value
@@ -25,9 +25,9 @@ export default function renderer(node: RenderableTreeNodes) {
     if (Array.isArray(node)) {
       return h(defineComponent({
         render() {
-          return null
+          return node.map(render)
         },
-      }), node.map(render))
+      }))
     }
 
     if (node === null || typeof node !== 'object') {

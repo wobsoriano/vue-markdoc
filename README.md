@@ -39,8 +39,8 @@ Markdoc is open-source—check out its [source](http://github.com/markdoc/markdo
 ```
 
 ```ts
-import content from './contents/doc.md'
 import Markdoc from '@markdoc/markdoc'
+import content from './contents/doc.md'
 
 const html = Markdoc.renderers.html(content)
 ```
@@ -66,7 +66,7 @@ export default defineConfig({
 ## TypeScript Shim
 
 ```ts
-declare module "*.md" {
+declare module '*.md' {
   import type { RenderableTreeNode } from '@markdoc/markdoc'
   const Node: RenderableTreeNode
   export default Node
