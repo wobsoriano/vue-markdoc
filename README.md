@@ -5,7 +5,7 @@ Transform [Markdoc](https://markdoc.io/) renderable trees to Vue components.
 ## Installation
 
 ```bash
-pnpm add vue-markdoc
+pnpm add @markdoc/markdoc vue-markdoc
 ```
 
 ## Usage
