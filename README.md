@@ -32,6 +32,10 @@ const ContentComponent = render(content)
 </template>
 ```
 
+## Related
+
+- [vite-plugin-markdoc](https://github.com/wobsoriano/vite-plugin-markdoc) - Markdoc plugin for Vite
+
 ## License
 
 MIT
