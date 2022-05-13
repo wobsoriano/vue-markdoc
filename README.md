@@ -70,6 +70,18 @@ const ContentComponent = render(content, {
 </template>
 ```
 
+```html
+<template>
+  <div class="callout">
+    <slot />
+  </div>
+</template>
+
+<style>
+.callout {...}
+</style>
+```
+
 ## Related
 
 - [vite-plugin-markdoc](https://github.com/wobsoriano/vite-plugin-markdoc) - Markdoc plugin for Vite
