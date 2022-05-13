@@ -60,7 +60,7 @@ const content = Markdoc.transform(ast)
 
 const ContentComponent = render(content, {
   components: {
-    Callout: `Callout`
+    Callout
   }
 })
 </script>
