@@ -3,6 +3,10 @@ import { mount } from '@vue/test-utils'
 import type { RenderableTreeNode, RenderableTreeNodes } from '@markdoc/markdoc'
 import dynamic from '../src'
 
+function removeSpaces(html: string) {
+  return html.replace(/\s/g, '')
+}
+
 describe('Vue dynamic renderer', () => {
   it('renders a null node', () => {
     const example = { name: 'h1', children: ['test', null] }
@@ -10,7 +14,7 @@ describe('Vue dynamic renderer', () => {
 
     const wrapper = mount(output)
 
-    expect(wrapper.html().replace(/\s/g, '')).toBe('<h1>test<!----></h1>')
+    expect(removeSpaces(wrapper.html())).toBe('<h1>test<!----></h1>')
   })
 
   it('renders a tag', () => {
@@ -40,7 +44,7 @@ describe('Vue dynamic renderer', () => {
 
     const wrapper = mount(output)
 
-    expect(wrapper.html().replace(/\s/g, '')).toBe('<div><p>test</p></div>')
+    expect(removeSpaces(wrapper.html())).toBe('<div><p>test</p></div>')
   })
 
   it('renders a fragment', () => {
@@ -52,7 +56,7 @@ describe('Vue dynamic renderer', () => {
 
     const wrapper = mount(output)
 
-    expect(wrapper.html().replace(/\s/g, '')).toBe('<p>foo</p><p>bar</p>')
+    expect(removeSpaces(wrapper.html())).toBe('<p>foo</p><p>bar</p>')
   })
 
   describe('attributes', () => {
