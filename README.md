@@ -1,79 +1,36 @@
-# vite-plugin-markdoc
+# vue-markdoc
 
-[![Build Size](https://img.shields.io/bundlephobia/minzip/vite-plugin-markdoc?label=bundle%20size&style=flat&colorA=000000&colorB=000000)](https://bundlephobia.com/result?p=vite-plugin-markdoc)
-[![Version](https://img.shields.io/npm/v/vite-plugin-markdoc?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/vite-plugin-markdoc)
-
-A plugin that enables you to import markdown files on your Vite projects. It uses [stripe's](https://stripe.com/) [Markdoc](https://markdoc.io/) to parse and transform `.md` files.
+Transform [Markdoc](https://markdoc.io/) renderable trees to Vue components.
 
 ## Installation
 
 ```bash
-pnpm add vite-plugin-markdoc -D
+pnpm add vue-markdoc
 ```
 
 ## Usage
 
-```ts
-// vite.config.ts
-import { defineConfig } from 'vite'
-import markdoc from 'vite-plugin-markdoc'
-
-export default defineConfig({
-  ...
-  plugins: [markdoc()]
-});
-```
-
-```md
----
-title: What is Markdoc?
----
-
-# {% $markdoc.frontmatter.title %} {% #overview %}
-
-Markdoc is a Markdown-based syntax and toolchain for creating custom documentation sites. Stripe created Markdoc to power [our public docs](http://stripe.com/docs).
-
-{% callout type="check" %}
-Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
-{% /callout %}
-```
-
-```ts
+```html
+<script setup>
 import Markdoc from '@markdoc/markdoc'
-import content from './contents/doc.md'
+import render from 'vue-markdoc'
 
-const html = Markdoc.renderers.html(content)
+const doc = `
+# Getting started
+
+Run this command to install the Markdoc library:
+`
+
+const ast = Markdoc.parse(doc)
+const content = Markdoc.transform(ast)
+
+const ContentComponent = render(content)
+</script>
+
+<template>
+  <ContentComponent />
+</template>
 ```
-
-## Configuration
-
-The plugin accepts an optional [`Markdoc.transform`](https://markdoc.io/docs/syntax#config) config:
-
-```ts
-// vite.config.ts
-import { defineConfig } from 'vite'
-import markdoc from 'vite-plugin-markdoc'
-
-export default defineConfig({
-  plugins: [markdoc({
-    nodes: {...},
-    tags: {...},
-    ...
-  })]
-});
-```
-
-## TypeScript Shim
-
-```ts
-declare module '*.md' {
-  import type { RenderableTreeNode } from '@markdoc/markdoc'
-  const Node: RenderableTreeNode
-  export default Node
-}
-```
-
-Save as `vite.d.ts` for instance.
 
 ## License
 
