@@ -85,6 +85,7 @@ const ContentComponent = render(content, {
 ## Related
 
 - [vite-plugin-markdoc](https://github.com/wobsoriano/vite-plugin-markdoc) - Markdoc plugin for Vite
+- [vite-plugin-markdoc-vue](https://github.com/wobsoriano/vite-plugin-markdoc-vue) - Render Markdoc extended markdowns as Vue components.
 
 ## License
 
