@@ -44,7 +44,7 @@ import Callout from './Callout.vue'
 
 const tags = {
   callout: {
-    render: 'Callout',
+    render: Callout,
     attributes: {}
   }
 };
@@ -56,13 +56,9 @@ Attention, over here!
 `;
 
 const ast = Markdoc.parse(doc)
-const content = Markdoc.transform(ast)
+const content = Markdoc.transform(ast, tags)
 
-const ContentComponent = render(content, {
-  components: {
-    Callout
-  }
-})
+const ContentComponent = render(content)
 </script>
 
 <template>
