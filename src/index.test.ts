@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { RenderableTreeNode, RenderableTreeNodes } from '@markdoc/markdoc'
 import { defineComponent, h } from 'vue'
-import dynamic from '../src'
+import dynamic from '.'
 
 function removeSpaces(html: string) {
   return html.replace(/\s/g, '')
