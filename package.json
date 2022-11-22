@@ -1,11 +1,12 @@
 {
   "name": "vue-markdoc",
   "version": "0.1.2",
-  "packageManager": "pnpm@7.0.0",
+  "packageManager": "pnpm@7.16.1",
   "description": "Vue renderer for Markdoc",
   "publishConfig": {
     "access": "public"
   },
+  "license": "MIT",
   "keywords": [
     "frontmatter",
     "markdown",
@@ -13,14 +14,13 @@
     "react",
     "vue"
   ],
-  "license": "MIT",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     "require": "./dist/index.js",
     "import": "./dist/index.mjs"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
