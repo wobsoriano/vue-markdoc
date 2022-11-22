@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { RenderableTreeNode, RenderableTreeNodes } from '@markdoc/markdoc'
