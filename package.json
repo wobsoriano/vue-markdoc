@@ -52,6 +52,9 @@
     "vue": "^3.2.33"
   },
   "eslintConfig": {
-    "extends": "@antfu"
+    "extends": "@antfu",
+    "rules": {
+      "vue/one-component-per-file": "off"
+    }
   }
 }
