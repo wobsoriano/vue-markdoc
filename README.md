@@ -56,7 +56,7 @@ Attention, over here!
 `;
 
 const ast = Markdoc.parse(doc)
-const content = Markdoc.transform(ast, tags)
+const content = Markdoc.transform(ast, { tags })
 
 const ContentComponent = render(content)
 </script>
