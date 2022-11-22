@@ -1,6 +1,6 @@
 import type { RenderableTreeNodes, Scalar } from '@markdoc/markdoc'
 import type { Component, VNode } from 'vue'
-import { defineComponent, h } from 'vue'
+import { h } from 'vue'
 
 export default function dynamic(
   node: RenderableTreeNodes, { components }: { components?: Record<string, Component> } = {},
@@ -23,21 +23,22 @@ export default function dynamic(
     return output
   }
 
-  function render(node: RenderableTreeNodes): VNode {
+  function render(node: RenderableTreeNodes): VNode | Component {
     if (Array.isArray(node)) {
-      return h(defineComponent({
+      return h({
         render() {
           return node.map(render)
         },
-      }))
+      })
     }
 
+    // String
     if (node === null || typeof node !== 'object') {
-      return h(defineComponent({
+      return h({
         render() {
           return node
         },
-      }))
+      })
     }
 
     const {
@@ -54,14 +55,17 @@ export default function dynamic(
       }, () => children.map(render))
     }
 
-    return h(name, {
-      ...attr,
-    }, children.map(render))
+    // Vue component
+    if ((name as any).render || (name as any).setup)
+      return h(name as unknown as Component, attr, () => children.map(render) as VNode[])
+
+    // Element
+    return h(name as any, attr, children.map(render) as VNode[])
   }
 
-  return defineComponent({
+  return {
     render() {
       return render(node)
     },
-  })
+  }
 }

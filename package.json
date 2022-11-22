@@ -25,7 +25,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "concurrently \"pnpm build -- --watch\" \"pnpm --filter playground dev\"",
+    "dev": "concurrently \"pnpm build --watch\" \"pnpm --filter playground dev\"",
     "build-fast": "tsup src/index.ts --format cjs,esm",
     "build": "pnpm run build-fast --dts-resolve --minify",
     "lint": "eslint .",
