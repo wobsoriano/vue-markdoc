@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import Markdoc from '@markdoc/markdoc'
-import render from 'vue-markdoc'
+import render from '../../src'
 import Callout from './Callout.vue'
 
 const tags = {

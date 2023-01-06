@@ -45,7 +45,11 @@ export default function dynamic(
       name,
       attributes = {},
       children = [],
-    } = node
+    } = node as {
+      name: string
+      attributes: Record<string, string | number>
+      children: any
+    }
 
     const attr = Object.keys(attributes).length === 0 ? null : deepRender(attributes)
 
