@@ -86,7 +86,7 @@ describe('Vue dynamic renderer', () => {
         attributes: { id: 'foo' },
         children: ['test'],
       }
-      // @ts-expect-error: Incompatible test object type
+
       const output = dynamic(example as RenderableTreeNode)
 
       const wrapper = mount(output)
@@ -100,7 +100,7 @@ describe('Vue dynamic renderer', () => {
         attributes: { class: 'foo bar' },
         children: ['test'],
       }
-      // @ts-expect-error: Incompatible test object type
+
       const output = dynamic(example as RenderableTreeNode)
 
       const wrapper = mount(output)
@@ -114,7 +114,7 @@ describe('Vue dynamic renderer', () => {
         attributes: { 'data-foo': 42 },
         children: ['test'],
       }
-      // @ts-expect-error: Incompatible test object type
+
       const output = dynamic(example as RenderableTreeNode)
 
       const wrapper = mount(output)
@@ -130,7 +130,7 @@ describe('Vue dynamic renderer', () => {
         attributes: { class: 'code code-ruby' },
         children: ['test'],
       }
-      // @ts-expect-error: Incompatible test object type
+
       const output = dynamic(example)
 
       const wrapper = mount(output)
