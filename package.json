@@ -34,7 +34,7 @@
     "test": "vitest run",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "pnpm build",
-    "release": "bumpp --commit --push --tag && npm publish"
+    "release": "bumpp && npm publish"
   },
   "peerDependencies": {
     "@markdoc/markdoc": "^0.2.0",
