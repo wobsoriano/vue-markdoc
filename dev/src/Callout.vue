@@ -6,8 +6,7 @@
 
 <style>
 .callout {
-  height: 50px;
-  width: 50px;
-  background: Red;
+background-color: antiquewhite;
+padding: 12px;
 }
 </style>
