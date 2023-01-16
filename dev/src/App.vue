@@ -49,5 +49,4 @@ import a2aDoc from './a2a.md'
 <template>
   <!-- <ContentComponent /> -->
   <a2aDoc></a2aDoc>
-
 </template>
