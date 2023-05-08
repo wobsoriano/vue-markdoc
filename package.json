@@ -2,7 +2,7 @@
   "name": "vue-markdoc",
   "type": "module",
   "version": "0.2.0",
-  "packageManager": "pnpm@7.21.0",
+  "packageManager": "pnpm@8.2.0",
   "description": "Vue renderer for Markdoc",
   "publishConfig": {
     "access": "public"
@@ -41,20 +41,20 @@
     "vue": "^3.2.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.34.0",
-    "@markdoc/markdoc": "^0.2.1",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vitejs/plugin-vue-jsx": "^3.0.0",
-    "@vue/test-utils": "2.2.7",
-    "bumpp": "^8.2.1",
-    "concurrently": "^7.6.0",
-    "eslint": "^8.31.0",
-    "jsdom": "^20.0.3",
-    "tsup": "^6.5.0",
-    "typescript": "4.9.4",
-    "vite": "^4.0.4",
-    "vitest": "^0.26.3",
-    "vue": "^3.2.45"
+    "@antfu/eslint-config": "^0.38.6",
+    "@markdoc/markdoc": "^0.2.2",
+    "@vitejs/plugin-vue": "^4.2.1",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vue/test-utils": "2.3.2",
+    "bumpp": "^9.1.0",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.40.0",
+    "jsdom": "^22.0.0",
+    "tsup": "^6.7.0",
+    "typescript": "5.0.4",
+    "vite": "^4.3.5",
+    "vitest": "^0.31.0",
+    "vue": "^3.2.47"
   },
   "eslintConfig": {
     "extends": "@antfu",
