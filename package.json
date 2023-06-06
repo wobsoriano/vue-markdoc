@@ -37,12 +37,12 @@
     "release": "bumpp && npm publish"
   },
   "peerDependencies": {
-    "@markdoc/markdoc": "^0.2.0",
+    "@markdoc/markdoc": "^0.3.0",
     "vue": "^3.2.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.6",
-    "@markdoc/markdoc": "^0.2.2",
+    "@markdoc/markdoc": "^0.3.0",
     "@vitejs/plugin-vue": "^4.2.1",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vue/test-utils": "2.3.2",
