@@ -1,7 +1,7 @@
 {
   "name": "vue-markdoc",
   "type": "module",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "packageManager": "pnpm@8.6.1",
   "description": "Vue renderer for Markdoc",
   "publishConfig": {
