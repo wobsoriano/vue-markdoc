@@ -5,7 +5,7 @@ import Callout from './Callout.vue'
 
 const tags = {
   callout: {
-    render: Callout,
+    render: Callout as any,
     attributes: {},
   },
 }
