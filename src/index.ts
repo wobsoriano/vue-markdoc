@@ -60,6 +60,7 @@ export default function dynamic(
     }
 
     // Vue component
+    // TODO: There's probably a better way of checking if object is a component?
     if ((name as any).render || (name as any).setup)
       return h(name, attr, () => children.map(render))
 
