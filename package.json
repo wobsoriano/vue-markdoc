@@ -2,7 +2,7 @@
   "name": "vue-markdoc",
   "type": "module",
   "version": "0.3.0",
-  "packageManager": "pnpm@8.6.6",
+  "packageManager": "pnpm@8.6.11",
   "description": "Vue renderer for Markdoc",
   "publishConfig": {
     "access": "public"
@@ -41,19 +41,19 @@
     "vue": "^3.2.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.7",
+    "@antfu/eslint-config": "^0.40.0",
     "@markdoc/markdoc": "^0.3.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "@vue/test-utils": "2.4.0",
+    "@vue/test-utils": "2.4.1",
     "bumpp": "^9.1.1",
     "concurrently": "^8.2.0",
-    "eslint": "^8.44.0",
+    "eslint": "^8.46.0",
     "jsdom": "^22.1.0",
-    "tsup": "^7.1.0",
+    "tsup": "^7.2.0",
     "typescript": "5.1.6",
-    "vite": "^4.4.2",
-    "vitest": "^0.33.0",
+    "vite": "^4.4.8",
+    "vitest": "^0.34.1",
     "vue": "^3.3.4"
   },
   "eslintConfig": {
